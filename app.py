@@ -18,6 +18,7 @@ def generate_itenary(country, city, preferences, budget, currency, origin, start
     - Preferences: {preferences}
     
     Include recommended activities, restaurants, and timings.
+    It should include activities for each day from start date to end date
     Format it in a markdown table
     """
     
@@ -27,10 +28,10 @@ def generate_itenary(country, city, preferences, budget, currency, origin, start
                     {"role": "system", "content": "You are a travel itenary planner. Do not Stray Off Topic"},
                     {"role": "user", "content": prompt}
                 ],
-                max_tokens=150
+                max_tokens=500
             )
     
-    return response["choices"][0]["message"]["content"]
+    return response.choices[0].message.content
 
 @app.route('/itenary', methods=['POST'])
 def itenary():
