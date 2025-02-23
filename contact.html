@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Get in touch with us">
+    <title>Wayfarer-Contact Us</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* Default Light Mode */
+        :root {
+            --primary-color: #001f3f;
+            --background-color: #ffffff;
+            --navbar-bg: rgba(0, 31, 63, 0.8);
+            --btn-bg: #ffffff;
+            --btn-text: #001f3f;
+            --text-color: #000000;
+            --navtext:#f0f0f0;
+        }
+
+        /* Dark Mode */
+        .dark-mode {
+            --background-color: #121212;
+            --navbar-bg: rgba(0, 0, 0, 0.8);
+            --btn-bg: #333;
+            --btn-text: #ffffff;
+            --text-color: #ffffff;
+        }
+
+        /* General Styles */
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: var(--navbar-bg);
+            height: 60px;
+            padding: 0.5rem 2rem;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1030;
+            transition: background 0.3s ease-in-out;
+        }
+
+        .navbar-nav .nav-link {
+            color: var(--navtext);
+            font-weight: 600;
+            padding: 0.5rem 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #ffcc00;
+        }
+
+        /* Dark Mode Toggle */
+        .mode-toggle {
+            background-color: var(--btn-bg);
+            color: var(--btn-text);
+            border: none;
+            padding: 5px 15px;
+            font-weight: 600;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        /* Content */
+        .container {
+            padding-top: 80px;
+            max-width: 800px;
+            margin: auto;
+            text-align: center;
+        }
+
+        /* Form */
+        form {
+            max-width: 600px;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid d-flex justify-content-between align-items-center">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="test.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <button class="mode-toggle" id="modeToggle">🌙 Dark Mode</button>
+        </div>
+    </nav>
+
+    <!-- Contact Content -->
+    <div class="container">
+        <h1>Contact Us</h1>
+        <p>Have questions or feedback? We'd love to hear from you.</p>
+
+        <form>
+            <div class="mb-3">
+                <input type="text" class="form-control" placeholder="Your Name" required>
+            </div>
+            <div class="mb-3">
+                <input type="email" class="form-control" placeholder="Your Email" required>
+            </div>
+            <div class="mb-3">
+                <textarea class="form-control" rows="5" placeholder="Your Message" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Send Message</button>
+        </form>
+    </div>
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const modeToggle = document.getElementById("modeToggle");
+            const body = document.body;
+
+            if (localStorage.getItem("theme") === "dark") {
+                body.classList.add("dark-mode");
+                modeToggle.textContent = "☀️ Light Mode";
+            }
+
+            modeToggle.addEventListener("click", () => {
+                body.classList.toggle("dark-mode");
+
+                if (body.classList.contains("dark-mode")) {
+                    localStorage.setItem("theme", "dark");
+                    modeToggle.textContent = "☀️ Light Mode";
+                } else {
+                    localStorage.setItem("theme", "light");
+                    modeToggle.textContent = "🌙 Dark Mode";
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
