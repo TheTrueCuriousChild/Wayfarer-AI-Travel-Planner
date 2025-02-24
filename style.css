@@ -94,9 +94,6 @@ body {
 }
 
 .carousel-inner,
-.carousel-item {
-    height: 100vh;
-}
 
 .carousel-item img {
     width: 100%;
@@ -111,13 +108,14 @@ body {
 
 .text-container {
     position: absolute;
-    bottom: 10%;
+    top: 20%;
     left: 50%;
     transform: translateX(-50%);
     color: white;
     text-align: center;
     width: 90%;
     max-width: 800px;
+    z-index: 5;
 }
 
 .text-container p {
@@ -217,8 +215,8 @@ body {
 }
 
 .carousel-image {
-    width: 100%;
-    height: auto;
+    width: 80%;
+    aspect-ratio: 2;
     position: relative;
 }
 

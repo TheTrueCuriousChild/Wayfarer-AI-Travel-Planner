@@ -55,7 +55,10 @@ async function fetchWeatherInfo(city) {
             cit = "SVO"; cities = "Moscow";
         } else if (dest === "France") {
             cit = "CDG"; cities = "Paris";
-        } else {
+        } else if (dest=="Japan"){
+            cit="HND";cities="Tokyo";
+        }
+        else {
             cit = "FCO"; cities = "Rome";
         }
     
@@ -70,7 +73,10 @@ async function fetchWeatherInfo(city) {
             ori = "SVO";
         } else if (source === "France") {
             ori = "CDG";
-        } else {
+        } else if (source=="Japan"){
+            ori="HND";
+        }else
+         {
             ori = "FCO";
         }
     

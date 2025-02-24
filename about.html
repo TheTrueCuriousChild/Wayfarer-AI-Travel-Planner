@@ -14,6 +14,7 @@
       --btn-text: #001f3f;
       --text-color: #000000;
       --navtext: #f0f0f0;
+      --faqbg:#e0e0e0;
     }
 
     /* Dark Mode Variables */
@@ -23,10 +24,11 @@
       --btn-bg: #333;
       --btn-text: #ffffff;
       --text-color: #ffffff;
+      --faqbg:#303030;
     }
 
     /* Global Styles */
-    html, body {
+     body {
       margin: 0;
       padding: 0;
       height: 100%;
@@ -97,15 +99,14 @@
       right: 0;
     }
 
-    /* Section Container */
     .section-container {
       max-width: 1000px;
       margin: 2rem auto;
       padding: 0 1rem;
       text-align: center;
+      background-color: var(--background-color);
     }
 
-    /* Fade-in Section Animations */
     .fade-section {
       opacity: 0;
       transform: translateY(30px);
@@ -128,13 +129,41 @@
       margin-bottom: 2rem;
     }
 
-    /* Subtle background for each about section */
     .about-section {
       background-color: rgba(0, 31, 63, 0.05);
       padding: 2rem;
       border-radius: 8px;
       margin-bottom: 2rem;
     }
+
+    .faq-container {
+      width: 300px;
+      margin: 20px auto;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 10px;
+      background-color: var(--background-color);
+  }
+  details {
+      border-bottom: 1px solid #ddd;
+      padding: 10px 0;
+      background-color: var(--faqbg);
+      color: var(--text-color)
+  }
+  details:last-child {
+      border-bottom: none;
+  }
+  summary {
+      cursor: pointer;
+      padding: 10px;
+      background: #f4f4f4;
+      outline: none;
+      background-color: var(--faqbg);
+      color: var(--text-color);
+  }
+  .faq-answer {
+      padding: 10px;
+  }
   </style>
 </head>
 <body>
@@ -145,7 +174,7 @@
       <ul class="navbar-nav">
         <li><a class="nav-link" href="index.html">Home</a></li>
         <li><a class="nav-link" href="about.html">About</a></li>
-        <li><a class="nav-link" href="services.html">Services</a></li>
+        <li><a class="nav-link" href="services.html">Planner</a></li>
         <li><a class="nav-link" href="contact.html">Contact Us</a></li>
       </ul>
       <button class="mode-toggle" id="modeToggle">🌙 Dark Mode</button>
@@ -196,6 +225,21 @@
       </p>
     </section>
   </div>
+  <div class="faq-container">
+    <h3 style="color:var(--text-color)">FAQ</h3>
+    <details>
+      <summary>Is this service free</summary>
+      <div class="faq-answer">Yes it is</div>
+  </details>
+    <details>
+        <summary>How long does it take to respond</summary>
+        <div class="faq-answer">The retrieval of real time data depends on your internet speed but should not take more than 30 seconds</div>
+    </details>
+    <details>
+        <summary>How to use?</summary>
+        <div class="faq-answer">Just click planner on the navbar up top.</div>
+    </details>
+</div>
 
   <!-- Dark Mode and Scroll Animations -->
   <script>

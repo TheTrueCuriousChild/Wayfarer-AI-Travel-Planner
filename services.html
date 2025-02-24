@@ -83,7 +83,14 @@
         <input type="date" id="end-date" class="dates">
     </div>
     <button onclick="submission()">Submit</button>
-
+<script>
+    function getQueryParams() {
+        const params = new URLSearchParams(window.location.search);
+        document.getElementById("destination").value = params.get("destination") || "";
+        document.getElementById("preferred-activities").value = params.get("prefs") || "";
+    }
+    window.onload = getQueryParams;
+</script>
 <script src="scriptser.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
 </body>
