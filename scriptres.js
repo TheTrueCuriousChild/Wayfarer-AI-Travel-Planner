@@ -10,7 +10,7 @@ async function fetchWeather(source,destination) {
 
 async function fetchWeatherInfo(city) {
     
-
+    
     console.log("Fetching Weather Data from:", url);  
 
     fetch(url)
@@ -29,7 +29,7 @@ async function fetchWeatherInfo(city) {
 
             document.getElementById("weather-info").innerHTML = `
                 <p><strong>Humidity:</strong> ${data.current.humidity}%</p>
-                <p><strong>Temperature:</strong> ${data.current.temperature} Degrees Celcius</p>
+                <p><strong>Temperature:</strong> ${data.current.temperature} &deg Celcius</p>
             `;
         })
         .catch(error => {
@@ -159,7 +159,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         const formData = JSON.parse(storedData);
         console.log("Retrieved form data:", formData);
-        // fetchWeather(formData.source, formData.dest);
+        fetchWeather(formData.source, formData.dest);
         fetchFlight(
             formData.source,
             formData.dest,

@@ -13,7 +13,7 @@
     --btn-text: #ffffff;
 }
 .wrapper{
-    height: max(35vh,300px);
+    height: max(50vh,300px);
     display: flex;
     overflow-y: scroll;
     flex-direction: column;
@@ -124,5 +124,8 @@ body{
     aspect-ratio: 2;
   }
   .mapper{
-    height: max(80vh,400px);
+    height: max(85vh,400px);
   }
+  .iterenary{
+    height: 100vh;
+}

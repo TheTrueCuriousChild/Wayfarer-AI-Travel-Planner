@@ -252,7 +252,8 @@ body {
     padding: 10px;
     cursor: pointer;
     z-index: 10;
-    right:10px
+    right:10px;
+    display:none;
 }
 
 .nav-arrow-prev{
@@ -267,4 +268,5 @@ body {
     cursor: pointer;
     z-index: 10;
     left: 10px;
+    display: none;
 }

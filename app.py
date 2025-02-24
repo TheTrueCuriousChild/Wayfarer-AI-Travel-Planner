@@ -65,6 +65,7 @@ def generate_itenary(country, city, preferences, budget, currency, origin, start
     Format it in a markdown table with the following columns:
     |DAY|TIME|LOCATION|ACTIVITIES|
     where DAY is the day of the trip, LOCATION is a place within the destination city, TIME is time of day, and ACTIVITIES are the suggested activities.
+    if the date is around a popular festival in destination. include festive suggestions for activities.
     format of table is markdown table. markdown table should be able to be converted to html by marked.js this part is integral.Dont use special tags like ```markdown
     """
     response = client.chat.completions.create(
