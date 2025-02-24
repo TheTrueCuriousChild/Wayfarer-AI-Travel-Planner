@@ -5,8 +5,70 @@ body {
 }
 
 .dark-mode {
-    background-color: #0c0c33;
+    background-color: #121212;
     color: #d3d3d3;
+}
+
+.text{
+    color:aqua;
+}
+
+/* Global Styles */
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+    overflow-x: hidden;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #001f3f;
+    height: 60px;
+    padding: 0.5rem 2rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1030;
+    transition: background 0.3s ease-in-out;
+}
+
+.navbar-nav .nav-link {
+    color: var(--navtext);
+    font-weight: 600;
+    padding: 0.5rem 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #ffcc00;
+}
+
+/* Light/Dark Mode Toggle Button */
+.dark-mode-toggle {
+    position: absolute;
+    right: 0;
+    background-color: #03407d;
+    color: var(--btn-text);
+    border: none;
+    padding: 5px 15px;
+    font-weight: 600;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    
+}
+.spacer{
+    height: 50px;
+}
+.dark mode-toggle:hover {
+    background-color: var(--btn-text);
+    color: var(--btn-bg);
 }
 
 h2 {
@@ -83,4 +145,9 @@ button:hover {
 
 .traveler-inputs input {
     width: 60px;
+}
+.HOME{
+    text-decoration: none;
+    background-color: transparent;
+    color:rgb(67, 88, 194);
 }

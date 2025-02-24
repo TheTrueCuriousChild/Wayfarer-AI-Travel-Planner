@@ -1,153 +1,230 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Learn more about us">
-    <title>About Us</title>
+  <meta charset="UTF-8">
+  <title>About Wayfarer</title>
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,600&display=swap" rel="stylesheet">
 
-    <!-- Bootstrap 5 -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #001f3f;
+      --background-color: #ffffff;
+      --navbar-bg: #001f3f;
+      --btn-bg: #ffffff;
+      --btn-text: #001f3f;
+      --text-color: #000000;
+      --navtext: #f0f0f0;
+    }
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    /* Dark Mode Variables */
+    .dark-mode {
+      --background-color: #121212;
+      --navbar-bg: #000000;
+      --btn-bg: #333;
+      --btn-text: #ffffff;
+      --text-color: #ffffff;
+    }
 
-    <style>
-        /* Default Light Mode */
-        :root {
-            --primary-color: #001f3f;
-            --background-color: #ffffff;
-            --navbar-bg: rgba(0, 31, 63, 0.8);
-            --btn-bg: #ffffff;
-            --btn-text: #001f3f;
-            --text-color: #000000;
-            --navtext:#f0f0f0;
-        }
+    /* Global Styles */
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--background-color);
+      color: var(--text-color);
+      transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+    }
 
-        /* Dark Mode */
-        .dark-mode {
-            --background-color: #121212;
-            --navbar-bg: rgba(0, 0, 0, 0.8);
-            --btn-bg: #333;
-            --btn-text: #ffffff;
-            --text-color: #ffffff;
-        }
+    /* Navbar */
+    .navbar {
+      background-color: var(--navbar-bg);
+      padding: 0.5rem 2rem;
+      /* Remove sticky/fixed positioning */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-        /* General Styles */
-        html, body {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            width: 100%;
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
-        }
+    .navbar .navbar-nav {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
 
-        /* Navbar */
-        .navbar {
-            background-color: var(--navbar-bg);
-            height: 60px;
-            padding: 0.5rem 2rem;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1030;
-            transition: background 0.3s ease-in-out;
-        }
+    .navbar .nav-link {
+      color: var(--navtext);
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
 
-        .navbar-nav .nav-link {
-            color: var(--navtext);
-            font-weight: 600;
-            padding: 0.5rem 1.5rem;
-            transition: color 0.3s ease;
-        }
+    .navbar .nav-link:hover {
+      color: #ffcc00;
+    }
 
-        .navbar-nav .nav-link:hover {
-            color: #ffcc00;
-        }
-        /* Dark Mode Toggle */
-        .mode-toggle {
-            background-color: var(--btn-bg);
-            color: var(--btn-text);
-            border: none;
-            padding: 5px 15px;
-            font-weight: 600;
-            border-radius: 20px;
-            cursor: pointer;
-        }
+    /* Dark Mode Toggle Button */
+    .mode-toggle {
+      background-color: var(--btn-bg);
+      color: var(--btn-text);
+      border: none;
+      padding: 6px 15px;
+      font-weight: 600;
+      border-radius: 20px;
+      cursor: pointer;
+      margin-left: auto; /* pushes toggle button to the right */
+    }
 
-        /* Content */
-        .container {
-            padding-top: 80px;
-            max-width: 800px;
-            margin: auto;
-            text-align: center;
-        }
-    </style>
+    /* Navbar container to hold nav items + toggle */
+    .navbar-container {
+      width: 100%;
+      max-width: 1200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .navbar-nav {
+      margin: 0 auto; /* center nav items */
+    }
+
+    .mode-toggle {
+      position: absolute;
+      right: 0;
+    }
+
+    /* Section Container */
+    .section-container {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      text-align: center;
+    }
+
+    /* Fade-in Section Animations */
+    .fade-section {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    .fade-section.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .section-container h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .section-container p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+
+    /* Subtle background for each about section */
+    .about-section {
+      background-color: rgba(0, 31, 63, 0.05);
+      padding: 2rem;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+    }
+  </style>
 </head>
 <body>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg">
-        <div class="container-fluid d-flex justify-content-between align-items-center">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="test.html">Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                </ul>
-            </div>
-            <button class="mode-toggle" id="modeToggle">🌙 Dark Mode</button>
-        </div>
-    </nav>
-
-    <!-- About Content -->
-    <div class="container">
-        <h1>About Us</h1>
-        <p><strong>Welcome</strong> to our website!</p>
-        <p>Our goal is to provide the best and customizable travel plan available accross the web.</p>
-    <p>We provide the following features in our website</p>
-    <ol>
-       <p>AI assistance about your travel plans.</p>
-       <p> Customizable travelling plans.</p>
-       <p> Further assistance.</p>
-       <p> Live map tracking of source and destination</p>
-    </ol>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="navbar-container">
+      <ul class="navbar-nav">
+        <li><a class="nav-link" href="index.html">Home</a></li>
+        <li><a class="nav-link" href="about.html">About</a></li>
+        <li><a class="nav-link" href="services.html">Services</a></li>
+        <li><a class="nav-link" href="contact.html">Contact Us</a></li>
+      </ul>
+      <button class="mode-toggle" id="modeToggle">🌙 Dark Mode</button>
     </div>
+  </nav>
 
-    <!-- Bootstrap JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+  <!-- About Us Sections -->
+  <div class="section-container">
+    <section class="about-section fade-section" id="our-story">
+      <h2>Our Story</h2>
+      <p>
+        Welcome to <strong>Wayfarer</strong>, your go-to travel itinerary planner. 
+        Founded on the belief that travel should be <em>effortless</em> and 
+        <em>inspiring</em>, we’ve grown from a small passion project to a global 
+        community of adventurers and explorers. 
+      </p>
+    </section>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const modeToggle = document.getElementById("modeToggle");
-            const body = document.body;
+    <section class="about-section fade-section" id="our-mission">
+      <h2>Our Mission</h2>
+      <p>
+        At Wayfarer, our mission is simple: to make every trip unforgettable. 
+        By combining cutting-edge technology with expert travel knowledge, 
+        we craft personalized itineraries that showcase the best of each destination. 
+        Whether you’re traveling solo or with a group, our aim is to help you discover 
+        new places, meet new people, and create memories that last a lifetime.
+      </p>
+    </section>
 
-            if (localStorage.getItem("theme") === "dark") {
-                body.classList.add("dark-mode");
-                modeToggle.textContent = "☀️ Light Mode";
-            }
+    <section class="about-section fade-section" id="our-approach">
+      <h2>Our Approach</h2>
+      <p>
+        We focus on curating the perfect balance of iconic landmarks, local favorites, 
+        and hidden gems. Our platform learns from your preferences to provide 
+        tailor-made suggestions. We’re proud to combine advanced AI with 
+        <strong>human expertise</strong>, ensuring every detail of your journey 
+        is <em>uniquely you</em>.
+      </p>
+    </section>
 
-            modeToggle.addEventListener("click", () => {
-                body.classList.toggle("dark-mode");
+    <section class="about-section fade-section" id="our-future">
+      <h2>The Wayfarer Future</h2>
+      <p>
+        Looking ahead, we’re committed to continuous innovation and growth. 
+        From eco-friendly travel options to immersive cultural experiences, 
+        Wayfarer is always evolving to bring you the very best of the travel world. 
+        <strong>Join us</strong> and explore the future of adventure.
+      </p>
+    </section>
+  </div>
 
-                if (body.classList.contains("dark-mode")) {
-                    localStorage.setItem("theme", "dark");
-                    modeToggle.textContent = "☀️ Light Mode";
-                } else {
-                    localStorage.setItem("theme", "light");
-                    modeToggle.textContent = "🌙 Dark Mode";
-                }
-            });
+  <!-- Dark Mode and Scroll Animations -->
+  <script>
+    // Dark Mode Toggle
+    const modeToggle = document.getElementById("modeToggle");
+    modeToggle.addEventListener("click", function () {
+      document.body.classList.toggle("dark-mode");
+      modeToggle.textContent = document.body.classList.contains("dark-mode") 
+        ? "☀️ Light Mode" 
+        : "🌙 Dark Mode";
+    });
+
+    // Intersection Observer for Fade-in Sections
+    document.addEventListener('DOMContentLoaded', function() {
+      const sections = document.querySelectorAll('.fade-section');
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+          }
         });
-    </script>
+      }, {
+        threshold: 0.1
+      });
 
+      sections.forEach(section => {
+        observer.observe(section);
+      });
+    });
+  </script>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wayfarer-Hillstation</title>
+    <title>Hill Stations</title>
 
     <!-- Bootstrap CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
@@ -14,9 +14,9 @@
             --navbar-bg: #001f3f;
             --btn-bg: #ffffff;
             --btn-text: #001f3f;
-            --text-color: #000000;
+            --text-color: #000;
             --background-color: #f8f9fa;
-            --navtext:#f0f0f0;
+            --hillstation-card-bg:  #b5d6f5;
         }
 
         /* Dark Mode */
@@ -26,11 +26,9 @@
             --btn-text: #ffffff;
             --text-color: #ffffff;
             --background-color: #121212;
+            --hillstation-card-bg: #508dd7;
         }
-        .read-more-btn{
-            border-radius: 5px;
-            box-shadow: #939393 -2px -2px 2px inset,white 2px 2px 2px inset;
-        }
+
         /* Navbar */
         .navbar {
             background-color: var(--navbar-bg);
@@ -41,18 +39,12 @@
             left: 0;
             width: 100%;
             z-index: 1030;
-            transition: background 0.3s ease-in-out;
         }
 
         .navbar-nav .nav-link {
-            color: var(--navtext);
+            color: var(--text-color);
             font-weight: 600;
             padding: 0.5rem 1.5rem;
-            transition: color 0.3s ease;
-        }
-
-        .navbar-nav .nav-link:hover {
-            color: #ffcc00;
         }
 
         /* Light/Dark Mode Toggle Button */
@@ -64,78 +56,66 @@
             font-weight: 600;
             border-radius: 20px;
             cursor: pointer;
-            transition: 0.3s ease;
         }
 
-        .mode-toggle:hover {
-            background-color: var(--btn-text);
-            color: var(--btn-bg);
-        }
-
+        /* Page Content */
         body {
-            background-color: var(--background-color);
             color: var(--text-color);
-            margin: 0;
             padding-top: 80px;
+            background-color: var(--background-color);
             transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
         }
 
         h1 {
-            text-align: left;
-            margin-top: 27px;
+            text-align: center;
             color: navy;
             font-family: cursive;
         }
-        h3{
-            text-align: left;
-            margin-top: 20px;
+
+        .hillstation-section {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            padding: 80px;
+        }
+
+        .hillstation-card {
+            border: 5px solid #ddd;
+            border-radius: 8px;
+            background-color:var(--hillstation-card-bg);
+            padding: 25px;
+            text-align: center;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .hillstation-card img {
+            width: 100%;
+            border-radius: 20px;
+            margin-bottom: 10px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .hillstation-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .hillstation-card p {
             color: var(--text-color);
-            font-family: 'Times New Roman', Times, serif;
-            font-size: 20px;
-
+            font-family: 'Arial', sans-serif;
+            font-size: 16px;
         }
-        p{
-            text-align: left;
-            margin-top: 20px;
-            color:var(--text-color);
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
-            font-size: 15px; 
-            
+
+        .hillstation-card a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
         }
-        .paragraph {
-    border: 3px solid black;
-    border-radius: 5px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    padding: 10px;
-}
 
-.hillstation-item {
-    display: flex;
-    align-items: center;
-    border: 2px solid black;
-    border-radius: 5px;
-    padding: 10px;
-    width: 48%; 
-}
+        .hillstation-card a:hover {
+            color: #0056b3;
+        }
 
-.hillstation-item img {
-    width: 70px; 
-    height: 70px; 
-    display: block;
-    margin-right: 15px; 
-}
-
-.paragraph img {
-    width: 70px;  
-    height: 70px;  
-    display: block; 
-    margin-right: 15px; 
-}
-
-
-        
     </style>
 </head>
 <body>
@@ -150,110 +130,87 @@
                 <ul class="navbar-nav">
                     <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="test.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
                     <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                 </ul>
             </div>
-            <!-- Dark Mode Toggle Button -->
             <button class="mode-toggle" id="modeToggle">🌙 Dark Mode</button>
         </div>
     </nav>
 
     <!-- Page Content -->
-    <h1>Hillstation</h1>
-    <h3>
-        Nestled in the heart of towering peaks, hill stations offer a serene escape from the hustle of everyday life. With mist-covered valleys, lush green meadows, and cool mountain breezes, these scenic retreats provide the perfect setting for adventure and relaxation alike.
-        <span class="hidden-text" style="display: none;">
-            Whether it's the charm of snow-capped summits, the thrill of winding trails, or the warmth of cozy cottages, every hill station has a story to tell. From breathtaking sunrise views to starry night skies, these high-altitude havens are a paradise for nature lovers, trekkers, and those seeking tranquility in the lap of the mountains.
-        </span>
-        <button class="read-more-btn" onclick="toggleText()">Read More</button>
-    </h3>
-    <div class="paragraph">
-        <div class="hillstation-item">
-            <img src="img06.jpg" alt="Shimla">
+    <h1><b>Explore the World's Best Hill Stations</b></h1>
+
+    <!-- Hill Stations Section -->
+    <div class="hillstation-section">
+        <div class="hillstation-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQZV2iSY6QOCC3u629ibl_aoPcEV5ApowZMw&s" alt="Manali, India">
+            <p><b>Manali, India</b> - A beautiful hill station in the Himalayas known for adventure sports and scenic beauty.
+                <a href="https://www.tripadvisor.in/Tourism-g297618-Manali_Kullu_District_Himachal_Pradesh-Vacations.html">Click Here</a></p>
+        </div>
+
+        <div class="hillstation-card">
+            <img src="https://content.r9cdn.net/rimg/dimg/58/e8/dec1e2a2-city-40374-162f7a10751.jpg?width=1366&height=768&xhint=1469&yhint=1100&crop=true" alt="Zermatt, Switzerland">
+            <p><b>Zermatt, Switzerland</b> - A paradise for skiers and nature lovers with stunning views of the Matterhorn.
+                <a href="https://zermatt.swiss/en">Click Here</a></p>
+        </div>
+
+        <div class="hillstation-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxcY1dbTAHtII8KeUXiyGjp89kKUnnHylcbQ&s" alt="Chamonix, France">
             <p>
-                Shimla—where the whispers of pine trees, the charm of colonial streets, and the crisp mountain air create a paradise in the hills<a href="https://hikerwolf.com/places-to-visit-in-shimla/">Click Here</a>
-            </p>
-        </div>
-        
-        <div class="hillstation-item">
-            <img src="img07.jpg" alt="Hakone ">
-            <p>Hakone is where the mountains embrace the sky, the waters reflect peace, and Mount Fuji watches over in silent grandeur.
-                <a href="https://www.klook.com/en-IN/destination/p60271848-hakone-ropeway/">Click Here</a>
-            </p>
-        </div>
-    
-        <div class="hillstation-item">
-            <img src="img08.jpg" alt="Bavarian-Alps">
-            <p>The Bavarian Alps are a masterpiece painted with snowy peaks, emerald lakes, and fairytale castles
-                <a href="https://www.britannica.com/place/Bavarian-Alps">Click Here</a>
-            </p>
-        </div>
-    
-        <div class="hillstation-item">
-            <img src="img09.jpg" alt="Australia">
-            <p>Nature's poetry is best read in the stillness of Cradle Mountain, where every peak whispers a story of time.
-
-                
-                <a href="https://en.wikipedia.org/wiki/Cradle_Mountain">Click Here</a>
-            </p>
-        </div>
-    
-        <div class="hillstation-item">
-            <img src="img10.jpg" alt="Mount Kosciuszko ">
-            <p>Standing atop Mount Kosciuszko is not just reaching Australia’s highest point, but embracing the boundless beauty of the wild.
-                <a href="https://en.wikipedia.org/wiki/Mount_Kosciuszko">Click Here</a>
-            </p>
+                <b>Chamonix, France</b> - A stunning Alpine resort famous for skiing, hiking, and Mont Blanc views.
+                <a href="https://www.chamonix.net/english/chamonix">Click Here</a></p>
         </div>
 
-        <div class="hillstation-item">
-            <img src="img11.jpg" alt="Mount Bromo">
-            <p>Jump, and you will find out how to unfold your wings as you fall. 
-                <a href="https://en.wikipedia.org/wiki/Mount_Bromo">Click Here</a>
-            </p>
+        <div class="hillstation-card">
+            <img src="https://www.erikastravels.com/wp-content/uploads/2015/11/Lake-Moraine-in-Banff-Canada-1.jpg" alt="Banff, Canada">
+            <p><b>Banff, Canada</b> Nestled in the Rocky Mountains, offering breathtaking scenery and outdoor adventures.
+                <a href="https://parks.canada.ca/pn-np/ab/banff">Click Here</a></p>
+        </div>
+
+        <div class="hillstation-card">
+            <img src="https://media.tacdn.com/media/attractions-content--1x-1/0f/79/46/09.jpg" alt="Queenstown, New Zealand">
+            <p><b>Queenstown, New Zealand</b>  A perfect blend of adventure, lakes, and mountains.
+                <a href="https://assets.simpleviewinc.com/simpleview/image/upload/c_limit,h_1200,q_75,w_1200/v1/clients/queenstownnz/Queenstown_Winter_Aerial_from_Bob_s_Peak_d9f0d329-23bf-489f-86e2-9f008190bbd7.jpg">Click Here</a></p>
+        </div>
+
+        <div class="hillstation-card">
+            <img src="https://r.search.yahoo.com/_ylt=AwrKEYMybLtnRrQVMK3GHAx.;_ylu=c2VjA2ZwLWltZwRzbGsDaW1n/RV=2/RE=1740364978/RO=11/RU=https%3a%2f%2fcontent.fun-japan.jp%2frenewal-prod%2fcms%2farticles%2fcontent%2f7a68c22d2dcb0ba77e579e997ecbe5d7fb5dfaf7.jpg/RK=2/RS=gHdZVvrs_9q8ejow_Ot0NHWqQd0-" alt="Hakone, Japan">
+            <p><b>Hakone, Japan</b> - A peaceful getaway with hot springs and stunning views of Mount Fuji.
+                <a href="http://hakone-japan.com/">Click Here</a></p>
+        </div>
+
+        <div class="hillstation-card">
+            <img src="https://cdn.thecrazytourist.com/wp-content/uploads/2018/07/ccimage-shutterstock_268569599.jpg" alt="Chiang Mai, Thailand">
+            <p><b>Chiang Mai, Thailand</b> - A cultural and scenic retreat in the mountains of Northern Thailand.
+                <a href="https://media.cntraveller.in/wp-content/uploads/2022/07/shutterstock_227981773-1366x768.jpg">Click Here</a></p>
+        </div>
+
+        <div class="hillstation-card">
+            <img src="https://www.agoda.com/wp-content/uploads/2024/01/Bogor-Mount-Salak.jpg" alt="Bogor, Indonesia">
+            <p><b>Bogor, Indonesia</b> - A lush green hill station with botanical gardens and cool climate.
+                <a href="https://www.britannica.com/place/Bogor">Click Here</a></p>
         </div>
     </div>
-    
-
 
     <!-- Bootstrap JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
 
+    <!-- JavaScript for Dark Mode Toggle -->
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const modeToggle = document.getElementById("modeToggle");
-            const body = document.body;
+        const modeToggle = document.getElementById('modeToggle');
+        const body = document.body;
 
-            if (localStorage.getItem("theme") === "dark") {
-                body.classList.add("dark-mode");
-                modeToggle.textContent = "☀️ Light Mode";
-            }
-
-            modeToggle.addEventListener("click", () => {
-                body.classList.toggle("dark-mode");
-
-                if (body.classList.contains("dark-mode")) {
-                    localStorage.setItem("theme", "dark");
-                    modeToggle.textContent = "☀️ Light Mode";
-                } else {
-                    localStorage.setItem("theme", "light");
-                    modeToggle.textContent = "🌙 Dark Mode";
-                }
-            });
-        });
-        function toggleText() {
-            var hiddenText = document.querySelector(".hidden-text");
-            var btn = document.querySelector(".read-more-btn");
-
-            if (hiddenText.style.display === "none" || hiddenText.style.display === "") {
-                hiddenText.style.display = "inline"; // Show text
-                btn.textContent = "Read Less";
+        modeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            
+            // Change button text based on current mode
+            if (body.classList.contains('dark-mode')) {
+                modeToggle.textContent = '🌞 Light Mode';
             } else {
-                hiddenText.style.display = "none"; // Hide text
-                btn.textContent = "Read More";
+                modeToggle.textContent = '🌙 Dark Mode';
             }
-        }
+        });
     </script>
-
 </body>
 </html>

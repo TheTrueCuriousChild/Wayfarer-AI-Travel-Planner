@@ -1,0 +1,128 @@
+
+:root{
+    --wrapper-bg:#d0d0d0;
+    --wrapper-text:#202020;
+    --text-color:#f0f0f0;
+    --btn-bg: #ffffff;
+    --btn-text: #001f3f;
+}
+.dark-mode{
+    --wrapper-bg:#202020;
+    --wrapper-text:#eeeeee;
+    --btn-bg: #333;
+    --btn-text: #ffffff;
+}
+.wrapper{
+    height: max(35vh,300px);
+    display: flex;
+    overflow-y: scroll;
+    flex-direction: column;
+    margin:1em;
+    padding: 10px;
+    box-shadow: 5px 5   px 2px whitesmoke inset,-10px -10px 2px gray inset;
+    background-color: var(--wrapper-bg);
+    border-radius: 5px;
+}
+.wrapper div {
+    color: var(--wrapper-text);
+}
+html{
+    height:100vh;
+}
+body{
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+    transition: 0.5s;
+
+}
+.dark-mode {
+    background-color: #121212;
+    color: #d3d3d3;
+}
+.navbar-nav .nav-link {
+    color: var(--text-color);
+    font-weight: 600;
+    padding: 0.5rem 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #ffcc00;
+}
+.navbar{
+    background-color: #001f3f;
+}
+.dark-mode-toggle {
+    background-color: var(--btn-bg);
+    color: var(--btn-text);
+    border: none;
+    padding: 5px 15px;
+    font-weight: 600;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.dark-mode-toggle:hover {
+    background-color: var(--btn-text);
+    color: var(--btn-bg);
+}
+.rotating {
+    display: inline-block;
+    animation: spin 3s linear infinite;
+  }
+  @keyframes spin {
+    0%   { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  :root {
+    --table-bg: #ffffff;
+    --table-text: #333333;
+    --table-border: #dddddd;
+    --table-hover: #f9f9f9;
+  }
+
+  .dark-mode {
+    --table-bg: #2b2b2b;
+    --table-text: #eeeeee;
+    --table-border: #555555;
+    --table-hover: #3a3a3a;
+  }
+
+  #itenary-info table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--table-bg);
+    color: var(--table-text);
+    margin: 1rem 0;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 4px; 
+    overflow: hidden; 
+  }
+
+  #itenary-info th,
+  #itenary-info td {
+    border: 1px solid var(--table-border);
+    padding: 0.75rem 1rem;
+    text-align: left;
+  }
+
+  #itenary-info thead th {
+    background-color: var(--table-border);
+    color: var(--table-text);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  #itenary-info tbody tr:hover {
+    background-color: var(--table-hover);
+  }
+  iframe{
+    height: auto;
+    aspect-ratio: 2;
+  }
+  .mapper{
+    height: max(80vh,400px);
+  }

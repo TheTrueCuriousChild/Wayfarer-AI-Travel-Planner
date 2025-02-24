@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Food and Culinary Tours</title>
+    <title>Adventure</title>
 
     <!-- Bootstrap CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
@@ -16,7 +16,7 @@
             --btn-text: #001f3f;
             --text-color: #000000;
             --background-color: #f8f9fa;
-            --navtext:#f0f0f0;
+            --adventure-card-bg:  #b5d6f5;
         }
 
         /* Dark Mode */
@@ -26,11 +26,9 @@
             --btn-text: #ffffff;
             --text-color: #ffffff;
             --background-color: #121212;
+            --adventure-card-bg: #508dd7;
         }
-        .read-more-btn{
-            border-radius: 5px;
-            box-shadow: #939393 -2px -2px 2px inset,white 2px 2px 2px inset;
-        }
+
         /* Navbar */
         .navbar {
             background-color: var(--navbar-bg);
@@ -45,7 +43,7 @@
         }
 
         .navbar-nav .nav-link {
-            color: var(--navtext);
+            color: var(--text-color);
             font-weight: 600;
             padding: 0.5rem 1.5rem;
             transition: color 0.3s ease;
@@ -74,69 +72,98 @@
 
         /* Page Content */
         body {
-            background-color: var(--background-color);
             color: var(--text-color);
             margin: 0;
             padding-top: 80px; /* To prevent content from being hidden behind navbar */
             transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+            background-color: var(--background-color);
         }
 
         h1 {
-            text-align: left;
+            text-align: center;
             margin-top: 27px;
             color: navy;
             font-family: cursive;
         }
-        h3{
+
+        h3 {
+            background-color: #abd8ef;
             text-align: left;
             margin-top: 20px;
-            color: var(--text-color);
+            color: black;
             font-family: 'Times New Roman', Times, serif;
             font-size: 20px;
-
         }
-        p{
+
+        p {
             text-align: left;
             margin-top: 20px;
-            color:var(--text-color);
+            color: black;
             font-family: Verdana, Geneva, Tahoma, sans-serif;
-            font-size: 15px; 
-            
+            font-size: 15px;
         }
-        .paragraph {
-    border: 3px solid black;
-    border-radius: 5px;
-    display: flex;
-    flex-wrap: wrap; 
-    gap: 15px; 
-    padding: 10px;
-}
 
-.adventure-item {
-    display: flex;
-    align-items: center;
-    border: 2px solid black;
-    border-radius: 5px;
-    padding: 10px;
-    width: 48%; 
-}
+        /* Adventure Section */
+        .adventure-section {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 20px;
+            padding: 80px;
+        }
 
-.food-item img {
-    width: 70px; 
-    height: 70px; 
-    display: block;
-    margin-right: 15px; 
-}
+        .adventure-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: 5px solid #ddd;
+            border-radius: 8px;
+            background-color: var(--adventure-card-bg);
+            padding: 15px;
+            text-align: center;
+        }
 
-.paragraph img {
-    width: 70px;  
-    height: 70px;  
-    display: block; 
-    margin-right: 15px; 
-}
+        .adventure-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            margin-bottom: 15px;
+        }
 
+        .adventure-card p {
+            font-size: 18px;
+        }
 
-        
+        .adventure-card a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .adventure-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .adventure-card img {
+            width: 50%; 
+            height: 800%;
+            border-radius: 20px;
+            margin-bottom: 10px;
+        }
+
+        .adventure-card p {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        .adventure-card a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .adventure-card a:hover {
+            text-decoration: underline;
+        }
+
     </style>
 </head>
 <body>
@@ -151,7 +178,7 @@
                 <ul class="navbar-nav">
                     <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="test.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
                     <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                 </ul>
             </div>
@@ -161,60 +188,35 @@
     </nav>
 
     <!-- Page Content -->
-    <h1>Adventure</h1>
+    <h1><b>Experience Adventure & Nature</b></h1>
     <h3>
-        Embark on a thrilling adventure where breathtaking landscapes and heart-pounding experiences await. Dive into vibrant underwater worlds, trek through ancient trails surrounded by history, and feel the rush of adrenaline with extreme sports high above the ground. Ride through dramatic terrains, conquer towering sand dunes, and paddle across stunning waters framed by majestic cliffs. 
+        Explore the breathtaking beauty of wildlife and nature reserves, where nature’s wonders unfold in their purest form. From the vast savannahs of Africa, teeming with lions and elephants, to the lush rainforests of the Amazon, home to diverse species, these sanctuaries offer a rare glimpse into the planet's most pristine ecosystems.
         <span class="hidden-text" style="display: none;">
-        Explore dense forests teeming with wildlife, glide down snow-covered peaks, and challenge yourself with daring climbs. Whether soaring through the skies, navigating rugged landscapes, or immersing in the wonders of nature, the world is filled with unforgettable adventures waiting to be discovered!
+            Trek through national parks, hike scenic trails, and witness the majestic creatures in their natural habitats. Whether you're observing the migratory patterns of birds in the wetlands or spotting tigers in India’s reserves, each experience is a chance to connect with the natural world and help preserve its future for generations to come.
         </span>
         <button class="read-more-btn" onclick="toggleText()">Read More</button>
     </h3>
-    <div class="paragraph">
-        <div class="adventure-item">
-            <img src="lionello-delpiccolo-AvLH_8stcOs-unsplash.jpg" alt="Copper Canyon">
-            <p>"">Click Here</a>
+
+    <!-- Adventure Section -->
+    <div class="adventure-section">
+        
+        <div class="adventure-card">
+            <img src="https://lh3.googleusercontent.com/e1NTsPoLn26yT2FT2xuIiZk3maiXCtz1UHoXiJrGXaz-XYXpatZxfBrLINBuKLxSmuQqaeToYQFXcgtJ5-Dlsr1VmBk=w1000" alt="Adventure 1">
+            <p><b>Job fills your pocket but adventure fills your soul</b>
+                <a href="https://www.coppercanyonadventures.com/copper-canyon-panorama">Click Here</a>
             </p>
         </div>
         
-        <div class="adventure-item">
-            <img src="ganapathy-kumar-weJI3cPGzhI-unsplash.jpg" alt="Sahara Dessert">
-            <p>To travel in the desert is to journey into yourself
-                <a href="https://www.muchbetteradventures.com/magazine/sahara-desert-morocco-guide/">Click Here</a>
-            </p>
-        </div>
-    
-        <div class="adventure-item">
-            <img src="img02.jpg" alt="Vietnam">
-            <p>Climbing the limestone cliffs of Ha Long Bay is like reaching for the heavens from the sea
-                <a href="https://vietnam.travel/places-to-go/northern-vietnam/ha-long">Click Here</a>
-            </p>
-        </div>
-    
-        <div class="adventure-item">
-            <img src="img03.jpg" alt="Australia">
-            <p>Swim with the colors of the ocean and let the adventure begin
-
-                
-                <a href="https://www.australia.com/en-in/things-to-do/adventure-and-sports/must-do-activities-in-australia.html?gclid=CjwKCAiAiOa9BhBqEiwABCdG85qcGvcOIA3xgmuKhUFgwtU4STHkj3nlI0UUYcpzAPPmCLT_JSObGhoCDVAQAvD_BwE&ef_id=CjwKCAiAiOa9BhBqEiwABCdG85qcGvcOIA3xgmuKhUFgwtU4STHkj3nlI0UUYcpzAPPmCLT_JSObGhoCDVAQAvD_BwE:G:s&s_kwcid=AL!4635!3!721114964308!p!!g!!tourist%20attractions%20in%20australia!21906554299!169040927743&utm_actcampaign=21906554299&gad_source=1">Click Here</a>
-            </p>
-        </div>
-    
-        <div class="adventure-item">
-            <img src="img04.jpg" alt="Madagascar Avenue ">
-            <p>The Baobabs whisper stories of centuries past—listen closely.
-                <a href="https://www.huffpost.com/entry/visiting-the-baobab-trees_b_9825960">Click Here</a>
+        <div class="adventure-card">
+            <img src="https://media.istockphoto.com/id/481618375/photo/young-tuareg-with-camel-on-western-sahara-desert-in-africa.jpg?s=612x612&w=0&k=20&c=oPK1Ncl3jE7UDOqtjvPumYppbO48YSz3d7grB8OeR60=" alt="Adventure 2">
+            <p><b>To travel in the desert is to journey into yourself</b>
+                <a href="https://www.britannica.com/place/Sahara-desert-Africa">Click Here</a>
             </p>
         </div>
 
-        <div class="adventure-item">
-            <img src="img05.jpg" alt="New Zealand">
-            <p>Jump, and you will find out how to unfold your wings as you fall. 
-                <a href="https://www.queenstownnz.co.nz/things-to-do/adventure-activities/">Click Here</a>
-            </p>
-        </div>
+        <!-- More Adventure Cards... -->
+
     </div>
-    
-
 
     <!-- Bootstrap JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
@@ -224,6 +226,7 @@
             const modeToggle = document.getElementById("modeToggle");
             const body = document.body;
 
+            // Check saved theme and apply it
             if (localStorage.getItem("theme") === "dark") {
                 body.classList.add("dark-mode");
                 modeToggle.textContent = "☀️ Light Mode";
@@ -241,6 +244,7 @@
                 }
             });
         });
+
         function toggleText() {
             var hiddenText = document.querySelector(".hidden-text");
             var btn = document.querySelector(".read-more-btn");
@@ -254,6 +258,5 @@
             }
         }
     </script>
-
-</body>
+</body>     
 </html>

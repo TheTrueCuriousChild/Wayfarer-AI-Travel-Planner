@@ -8,11 +8,11 @@
     <script src="https://d3js.org/d3.v6.min.js"></script>
 </head>
 <body>
-    <a href="index.html">HOME</a>
-    <button id="dark-mode-toggle">
-        <img src="dark-mode-icon.png" alt="Dark Mode" width="20">
+    <a href="index.html" class="HOME">HOME</a>
+    <button class="dark-mode-toggle">
+        🌙Dark Mode
     </button>
-
+<div class="spacer"></div>
     <div class="map-container">
         <svg id="world-map"></svg>
         <div id="tooltip" class="hidden"></div>
@@ -69,10 +69,10 @@
 
         <label>Number of Travelers:</label>
         <div class="traveler-inputs">
-            <label>Adults:</label>
-            <input type="number" id="adults" value="1">
             <label>Children:</label>
             <input type="number" id="children" value="0">
+            <label>Adults:</label>
+            <input type="number" id="adults" value="1">
             <label>Elderly:</label>
             <input type="number" id="elderly" value="0">
         </div>
@@ -82,7 +82,9 @@
         <label for="start-date">End Date of Travel:</label>
         <input type="date" id="end-date">
     </div>
+    <button onclick="submission()">Submit</button>
 
-    <script src="scriptser.js"></script>
+<script src="scriptser.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

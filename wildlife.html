@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wildlife</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        /* Light Mode (Default) */
+        :root {
+            --navbar-bg: #001f3f;
+            --btn-bg: #ffffff;
+            --btn-text: #001f3f;
+            --text-color: #ffffff;
+            --background-color: #f1f6f6;
+
+            --wildlife-card-bg: #b5d6f5;
+
+        }
+
+        /* Dark Mode */
+        .dark-mode {
+            --navbar-bg: #000;
+            --btn-bg: #333;
+            --btn-text: #ffffff;
+            --text-color: #ffffff;
+            --background-color: #121212;
+            --hidden-text:white;
+            --wildlife-card-bg: #508dd7;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: var(--navbar-bg);
+            height: 60px;
+            padding: 0.5rem 2rem;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1030;
+            transition: background 0.3s ease-in-out;
+        }
+
+        .navbar-nav .nav-link {
+            color: var(--text-color);
+            font-weight: 600;
+            padding: 0.5rem 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #ffcc00;
+        }
+
+        /* Light/Dark Mode Toggle Button */
+        .mode-toggle {
+            background-color: var(--btn-bg);
+            color: var(--btn-text);
+            border: none;
+            padding: 5px 15px;
+            font-weight: 600;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        .mode-toggle:hover {
+            background-color: var(--btn-text);
+            color: var(--btn-bg);
+        }
+
+        /* Page Content */
+        body {
+            color: var(--text-color);
+            margin: 0;
+            padding-top: 80px; /* To prevent content from being hidden behind navbar */
+            transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+            background-color: var(--background-color);
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 27px;
+            color: navy;
+            font-family: cursive;
+        }
+
+        h3 {
+            background-color: #abd8ef;
+            text-align: left;
+            margin-top: 20px;
+            color: black;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 20px;
+        }
+        p {
+            text-align: left;
+            margin-top: 20px;
+            color: black;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 15px; 
+        }
+
+        /* Wildlife Section */
+        .wildlife-section {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);  /* Change this line to 2 columns */
+            gap: 20px;
+            padding: 80px;
+        }
+
+        .wildlife-card {
+            border: 5px solid #ddd;
+            border-radius: 8px;
+            background-color: var(--wildlife-card-bg);
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .wildlife-card img {
+            width: 50%;
+            height: 800%;
+            border-radius: 20px;
+            margin-bottom: 10px;
+        }
+
+        .wildlife-card p {
+            font-size: 20px;
+        }
+
+        .wildlife-card a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .wildlife-card {
+            animation: fadeIn 2s ease-in-out; /* Apply the fade-in effect */
+            margin-bottom: 20px; /* Space between cards */
+            transition: transform 0.5s ease-in-out; /* Smooth transformation */
+        }
+
+        /* Sticky header */
+        .sticky-header {
+            position: sticky;
+            top: 0;
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            z-index: 1000;
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Adding hover effect to wildlife cards */
+        .wildlife-card:hover {
+            transform: scale(1.05); /* Zoom effect on hover */
+        }
+        /* Light/Dark Mode Transition */
+        body {
+            transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid d-flex justify-content-between align-items-center">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <!-- Dark Mode Toggle Button -->
+            <button class="mode-toggle" id="modeToggle">🌙 Dark Mode</button>
+        </div>
+    </nav>
+
+    <!-- Page Content -->
+    <h1><b>Experience Wildlife & Nature</b></h1>
+    <h3>
+        Explore the breathtaking beauty of wildlife and nature reserves, where nature’s wonders unfold in their purest form. From the vast savannahs of Africa, teeming with lions and elephants, to the lush rainforests of the Amazon, home to diverse species, these sanctuaries offer a rare glimpse into the planet's most pristine ecosystems.
+        <span class="hidden-text" style="display: none;">
+            Trek through national parks, hike scenic trails, and witness the majestic creatures in their natural habitats. Whether you're observing the migratory patterns of birds in the wetlands or spotting tigers in India’s reserves, each experience is a chance to connect with the natural world and help preserve its future for generations to come.
+        </span>
+        <button class="read-more-btn" onclick="toggleText()">Read More</button>
+    </h3>
+
+    <!-- Wildlife Section -->
+    <div class="wildlife-section">
+        <!-- Wildlife Cards -->
+        <div class="wildlife-card">
+            <img src="https://lh3.googleusercontent.com/e1NTsPoLn26yT2FT2xuIiZk3maiXCtz1UHoXiJrGXaz-XYXpatZxfBrLINBuKLxSmuQqaeToYQFXcgtJ5-Dlsr1VmBk=w1000" alt="India wildlife">
+            <p><b>India's Diverse Wildlife:</b> India is home to a rich diversity of wildlife, from majestic tigers and elephants to rare species like the one-horned rhinoceros and snow leopards, thriving across its vast forests and national parks
+                <a href="https://www.holidify.com/collections/forest-reserves-of-india">Click Here</a>
+            </p>
+        </div>
+        
+        <div class="wildlife-card">
+            <img src="https://africafeeds.com/wp-content/uploads/2020/01/Safari-in-Africa.jpg" alt="Africa Wildlife">
+            <p><b>Wild Wonders of Africa</b> From the vast savannahs to the dense jungles, Africa is a sanctuary for some of the world's most iconic wildlife, including lions, elephants, and giraffes, living in their natural, untamed habitats
+                <a href="https://mtembezisafaris.com/beginners-africa-safari-guide/">Click Here</a>
+            </p>
+        </div>
+
+        <div class="wildlife-card">
+            <img src="https://www.tofino.com/uploaded-files/amazon/Amazon%20Oct_2014%20_2014_MG_4590.jpg" alt="Amazon Rainforest">
+            <p><b>Amazing Amazon</b> The Amazon Rainforest is a vibrant ecosystem teeming with diverse wildlife, from colorful birds to elusive jaguars, making it one of the most biologically rich places on Earth.
+                <a href="https://www.southamerica.travel/amazon-rainforest">Click Here</a>
+            </p>
+        </div>
+
+        <div class="wildlife-card">
+            <img src="https://www.fodors.com/wp-content/uploads/2018/11/shutterstock_558584191.jpg" alt="China Wildlife">
+            <p><b>China: Pandas and More Cuddly Creatures</b> The Amazon Rainforest, often called the 'lungs of the Earth,' is home to an incredible variety of species and plays a vital role in regulating the planet's climate
+             <a href="https://tripomatic.com/en/list/top-zoos-in-china-country:78">Click Here</a>
+            </p>
+        </div>
+
+        <div class="wildlife-card">
+            <img src="https://holidayswithkids.com.au/wp-content/uploads/2018/11/Safari_Journey_Bali.jpg" alt="Bali Wildlife">
+            <p><b>Bali Forest Treasure</b> Bali's lush forests are a sanctuary for diverse wildlife, offering a serene escape into nature's beauty and tranquility
+                <a href="https://www.getyourguide.com/-l347/-tc40/?cmp=bing&ad_id=78202965015413&adgroup_id=1251244867488760&bid_match_type=bb&campaign_id=710026699&device=c&feed_item_id=&keyword=location_id%3D347&loc_interest_ms=142351&loc_physical_ms=116073&match_type=b&msclkid=e53776a51f1113bb64b6111fdcfa2a84&network=o&partner_id=CD951&target_id=dat-2330002578455921&utm_adgroup=lc%3D347%3Abali,%20indonesia%7Cfn%3Df1%7Cagt%3Ddsa&utm_campaign=dc%3D62%3Aid%7Clc%3D347%3Abali,%20indonesia%7Cct%3Dcore%7Cln%3D29%3Aen%7Ctc%3Dall&utm_keyword=location_id%3D347&utm_medium=paid_search&utm_query=wildlife%20reserves%20of%20bali&utm_source=bing">Click Here</a>
+            </p>
+        </div>
+
+        <div class="wildlife-card">
+            <img src="https://www.qantas.com/content/travelinsider/en/experiences/nature/nature-park-australia-tasmanian-devil-koala-kangaroo/_jcr_content/parsysTop/hero.img.full.medium.jpg/1584425955165.jpg" alt="Australia Wildlife">
+            <p><b>Kangaroos and Koalas: Australia Special</b> Australia's unique wildlife, including kangaroos and koalas, offers a captivating glimpse into the country's natural wonders and diverse ecosystems.
+                <a href="https://www.qantas.com/travelinsider/en/experiences/nature/nature-park-australia-tasmanian-devil-koala-kangaroo.html">Click Here</a>
+            </p>
+        </div>
+
+        <div class="wildlife-card">
+            <img src="https://www.thoughtco.com/thmb/8uq2Eyt-lQeWFW_Ob34A5HbKWug=/2037x0/filters:no_upscale():max_bytes(150000):strip_icc()/red-panda-149481947-5b577cbbc9e77c002560f581.jpg" alt="Australia Wildlife">
+            <p><b>Red Pandas from Japan</b> Japan is home to a unique array of wildlife, from the playful Japanese macaques to the elusive Japanese black bears and vibrant sea creatures.
+                <a href="https://www.fly-jpn.com/blog/zoos-in-japan/">Click Here</a>
+            </p>
+        </div>
+
+        <div class="wildlife-card">
+            <img src="https://www.tripelle.com/wp-content/uploads/2019/04/Best-Aquariums-2-1024x683.jpg" alt="Australia Wildlife">
+            <p><b>Explore the world underwater!!</b> Dive into the depths of the ocean and discover a vibrant world teeming with colorful marine life and hidden wonders beneath the waves.
+                <a href="https://www.getyourguide.com/east-coast-usa-l209186/aquariums-tc1120/?cmp=bing&ad_id=78477855668363&adgroup_id=1255643611628108&bid_match_type=bb&campaign_id=710633573&device=c&feed_item_id=&">Click Here</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const modeToggle = document.getElementById("modeToggle");
+            const body = document.body;
+
+            if (localStorage.getItem("theme") === "dark") {
+                body.classList.add("dark-mode");
+                modeToggle.textContent = "☀️ Light Mode";
+            }
+
+            modeToggle.addEventListener("click", () => {
+                body.classList.toggle("dark-mode");
+
+                if (body.classList.contains("dark-mode")) {
+                    localStorage.setItem("theme", "dark");
+                    modeToggle.textContent = "☀️ Light Mode";
+                } else {
+                    localStorage.setItem("theme", "light");
+                    modeToggle.textContent = "🌙 Dark Mode";
+                }
+            });
+        });
+
+        function toggleText() {
+            var hiddenText = document.querySelector(".hidden-text");
+            var btn = document.querySelector(".read-more-btn");
+
+            if (hiddenText.style.display === "none" || hiddenText.style.display === "") {
+                hiddenText.style.display = "inline"; // Show text
+                btn.textContent = "Read Less";
+            } else {
+                hiddenText.style.display = "none"; // Hide text
+                btn.textContent = "Read More";
+            }
+        }
+    </script>
+</body>
+</html>
