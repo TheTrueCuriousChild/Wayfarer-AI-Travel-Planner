@@ -1,6 +1,6 @@
 # 🌍 ✈️ **WAYFARER** – JOURNEY BEYOND 🌟
 
-![alt text](logo.png "LOGO")
+![alt text](logo.jpg "LOGO")
 
 Wayfarer is your **AI-powered travel planner**, designed to make trip planning **effortless** and **tailored just for you**.  
 Whether you're a **budget traveler, a luxury explorer, or somewhere in between**, Wayfarer crafts **personalized itineraries** based on:  
